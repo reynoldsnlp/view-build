@@ -2,8 +2,7 @@ FROM java:8
 
 MAINTAINER Aleksandar Dimitrov <aleks.dimitrov@gmail.com>
 
-ENV runtime_dependencies "cg3 ant make maven"
-ENV build_dependencies "git"
+ENV runtime_dependencies "cg3 ant make maven git"
 
 RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
   > /etc/apt/trusted.gpg.d/apertium.gpg \
@@ -13,7 +12,7 @@ RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
   > /etc/apt/sources.list.d/apertium-nightly.list \
  && apt-get -qy update \
  && DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y $runtime_dependencies $build_dependencies \
+    apt-get install -y $runtime_dependencies \
  && mkdir -p /usr/local/werti \
  && mkdir -p /usr/local/werti/resources \
  && tmp=$(mktemp -d) \
