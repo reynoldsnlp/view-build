@@ -30,8 +30,8 @@ RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN useradd -ms /bin/bash builder
 USER builder
-WORKDIR /home/builder
-VOLUME /home/builder
+RUN mkdir /home/builder/build
+WORKDIR /home/builder/build
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["mvn"]
