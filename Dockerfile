@@ -14,7 +14,7 @@ RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
   > /etc/apt/sources.list.d/backports.list \
  && apt-get -qy update \
  && DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y $runtime_dependencies \
+    apt-get install -y -t jessie-backports $runtime_dependencies \
  && mkdir -p /usr/local/werti \
  && mkdir -p /usr/local/werti/resources \
  && tmp=$(mktemp -d) \
