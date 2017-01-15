@@ -10,6 +10,8 @@ RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
   > /etc/apt/preferences.d/apertium.pref \
  && echo "deb http://apertium.projectjj.com/apt/nightly jessie main" \
   > /etc/apt/sources.list.d/apertium-nightly.list \
+ && echo "deb http://ftp.debian.org/debian jessie-backports main" \
+  > /etc/apt/sources.list.d/backports.list \
  && apt-get -qy update \
  && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y $runtime_dependencies \
