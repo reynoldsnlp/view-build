@@ -1,6 +1,8 @@
-FROM maven:3-jdk-8
+FROM java:8
 
-ENV runtime_dependencies "cg3 ant make"
+MAINTAINER Aleksandar Dimitrov <aleks.dimitrov@gmail.com>
+
+ENV runtime_dependencies "cg3 ant make maven"
 ENV build_dependencies "git"
 
 RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
@@ -24,3 +26,12 @@ RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
  && rm -rf $tmp
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN useradd -ms /bin/bash builder
+USER builder
+WORKDIR /home/builder
+VOLUME /home/builder
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["mvn"]
