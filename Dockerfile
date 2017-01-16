@@ -3,6 +3,7 @@ FROM java:8
 MAINTAINER Aleksandar Dimitrov <aleks.dimitrov@gmail.com>
 
 ENV runtime_dependencies "cg3 ant make maven git"
+ENV git_lfs_version "1.5.5"
 
 RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
   > /etc/apt/trusted.gpg.d/apertium.gpg \
@@ -26,6 +27,10 @@ RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
  && apt-get remove -y $build_dependencies \
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
+ && cd $tmp \
+ && curl -LO https://github.com/git-lfs/git-lfs/releases/download/v${git_lfs_version}/git-lfs-linux-amd64-${git_lfs_version}.tar.gz \
+ && tar xf git-lfs-linux-amd64-${git_lfs_version}.tar.gz \
+ && mv git-lfs-${git_lfs_version}/git-lfs /usr/local/bin \
  && rm -rf $tmp
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
