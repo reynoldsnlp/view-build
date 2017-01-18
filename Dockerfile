@@ -2,7 +2,7 @@ FROM java:8
 
 MAINTAINER Aleksandar Dimitrov <aleks.dimitrov@gmail.com>
 
-ENV runtime_dependencies "cg3 ant make maven git"
+ENV runtime_dependencies "cg3 ant make maven git rsync"
 ENV git_lfs_version "1.5.5"
 
 RUN curl -L https://apertium.projectjj.com/apt/apertium-packaging.public.gpg \
