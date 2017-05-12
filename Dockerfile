@@ -1,4 +1,4 @@
-FROM adimit/view-tomcat
+FROM adimit/view-tomcat:1.0
 
 MAINTAINER Aleksandar Dimitrov <aleks.dimitrov@gmail.com>
 
