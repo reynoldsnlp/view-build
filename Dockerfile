@@ -4,7 +4,7 @@ MAINTAINER Aleksandar Dimitrov <aleks.dimitrov@gmail.com>
 
 USER root
 ENV runtime_dependencies "ant make maven git rsync openjdk-8-jdk"
-ENV git_lfs_version "1.5.5"
+ENV git_lfs_version "2.1.0"
 
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" \
   > /etc/apt/sources.list.d/backports.list \
