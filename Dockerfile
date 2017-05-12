@@ -12,7 +12,6 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" \
  && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y -t jessie-backports $runtime_dependencies \
  && tmp=$(mktemp -d) \
- && apt-get remove -y $build_dependencies \
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
  && cd $tmp \
