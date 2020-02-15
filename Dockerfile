@@ -1,6 +1,6 @@
-FROM adimit/view-tomcat:1.0
+FROM reynoldsnlp/view-tomcat:latest
 
-MAINTAINER Aleksandar Dimitrov <aleks.dimitrov@gmail.com>
+MAINTAINER Rob Reynolds <robert_reynolds@byu.edu>
 
 USER root
 ENV runtime_dependencies "ant make maven git rsync openjdk-8-jdk"
